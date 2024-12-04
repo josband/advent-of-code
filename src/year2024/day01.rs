@@ -1,4 +1,4 @@
-use std::{collections::HashMap, fs::File, io::{BufRead, BufReader}};
+use std::{collections::HashMap, fs::read_to_string};
 
 use color_print::cprintln;
 
@@ -8,66 +8,38 @@ pub fn day_01() {
     println!();
 }
 
-fn parse(list_one: &mut Vec<usize>, list_two: &mut Vec<usize>) {
-    let input = File::open("./inputs/day01.txt");
-    if let Err(e) = input {
-        panic!("Error opening input file {:?}", e);
-    }
+fn parse() -> (Vec<usize>, Vec<usize>) {
+    let (mut list_one, mut list_two) = (vec![], vec![]);
+    read_to_string("./inputs/day01.txt").expect("Can't open 2024 Day 1").lines().for_each(|line| {
+        let v: Vec<&str> = line.split_whitespace().collect();
+        assert!(v.len() == 2);
+        list_one.push(v[0].parse().unwrap());
+        list_two.push(v[1].parse().unwrap());
+    });
 
-    let reader = BufReader::new(input.expect("Failed to open file"));
-    reader.lines()
-        .filter_map(|line| {
-            line.ok().and_then(|content| {
-                let parts: Vec<&str> = content.split_whitespace().collect();
-                if parts.len() == 2 {
-                    Some((
-                        parts[0].parse().ok(),
-                        parts[1].parse().ok()
-                    ))
-                } else {
-                    None
-                }
-            })
-        })
-        .for_each(|(a, b)| {
-            if let (Some(a), Some(b)) = (a, b) {
-                list_one.push(a);
-                list_two.push(b);
-            }
-        });
+    (list_one, list_two)
 }
 
 fn part1() {
-    let mut list_one: Vec<usize> = Vec::new();
-    let mut list_two : Vec<usize>= Vec::new();
-
-    parse(&mut list_one, &mut list_two);
+    let (mut list_one, mut list_two) = parse();
 
     list_one.sort();
     list_two.sort();
 
-    let result = list_one.into_iter().zip(list_two)
-        .fold(0, |acc, pair| {
-            acc + (pair.0.abs_diff(pair.1))
-        });
+    let distance: usize = list_one.into_iter().zip(list_two).map(|(a, b)| a.abs_diff(b)).sum();
 
-    cprintln!("The total distance is: <b>{}</>", result);
+    cprintln!("The total distance is: <b>{}</>", distance);
 }
 
 fn part2() {
-    let mut list_one: Vec<usize> = Vec::new();
-    let mut list_two : Vec<usize>= Vec::new();
-
-    parse(&mut list_one, &mut list_two);
+    let (list_one, list_two) = parse();
 
     let mut count_map: HashMap<usize, usize> = HashMap::new();
     list_two.iter().for_each(|&num| {
         count_map.insert(num, count_map.get(&num).unwrap_or(&0) + 1);
     });
 
-    let similarity_score = list_one.iter()
-        .map(|&num| count_map.get(&num).unwrap_or(&0) * num)
-        .fold(0, |acc, num| acc + num);
+    let similarity_score: usize = list_one.iter().filter_map(|num| count_map.get(num).map(|count| num * count)).sum();
 
-    cprintln!("The total distance is: <b>{}</>", similarity_score);
+    cprintln!("The similarity score is: <b>{}</>", similarity_score);
 }
