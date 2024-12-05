@@ -5,6 +5,7 @@ use regex::Regex;
 pub fn day_03() {
     part1();
     part2();
+    println!();
 }
 
 fn parse_all_enabled() -> Vec<(i32, i32)> {

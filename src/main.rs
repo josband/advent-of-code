@@ -1,6 +1,6 @@
 use std::path::Path;
 
-use advent_of_code_2024::year2024::*;
+use advent_of_code::year2024::*;
 
 use color_print::cprintln;
 
@@ -20,6 +20,7 @@ fn main() {
             1 => day01::day_01(),
             2 => day02::day_02(),
             3 => day03::day_03(),
+            4 => day04::day_04(),
             _ => panic!()
         }
     }
