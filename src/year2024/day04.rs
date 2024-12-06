@@ -8,7 +8,6 @@ const XMAS: &str = "XMAS";
 pub fn day_04() {
     part1();
     part2();
-    println!();
 }
 
 fn part1() {

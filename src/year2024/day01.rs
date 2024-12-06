@@ -5,7 +5,6 @@ use color_print::cprintln;
 pub fn day_01() {
     part1();
     part2();
-    println!();
 }
 
 fn parse() -> (Vec<usize>, Vec<usize>) {
