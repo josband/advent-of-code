@@ -21,6 +21,7 @@ fn main() {
             3 => day03::day_03(),
             4 => day04::day_04(),
             5 => day05::day_05(),
+            6 => day06::day_06(),
             _ => panic!()
         }
     }
