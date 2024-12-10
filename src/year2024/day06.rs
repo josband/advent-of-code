@@ -52,7 +52,7 @@ pub fn day_06() {
 }
 
 fn parse() -> Input {
-    read_to_string("./inputs/day06.txt").expect("Cannot read 2024 day 06").lines()
+    read_to_string("./inputs/2024/day06.txt").expect("Cannot read 2024 day 06").lines()
             .map(|line| line.chars().collect()).collect()
 }
 

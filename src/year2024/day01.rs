@@ -9,7 +9,7 @@ pub fn day_01() {
 
 fn parse() -> (Vec<usize>, Vec<usize>) {
     let (mut list_one, mut list_two) = (vec![], vec![]);
-    read_to_string("./inputs/day01.txt").expect("Can't open 2024 Day 1").lines().for_each(|line| {
+    read_to_string("./inputs/2024/day01.txt").expect("Can't open 2024 Day 1").lines().for_each(|line| {
         let v: Vec<&str> = line.split_whitespace().collect();
         assert!(v.len() == 2);
         list_one.push(v[0].parse().unwrap());

@@ -7,14 +7,14 @@ use color_print::cprintln;
 const NUMBER_OF_DAYS: usize = 25;
 
 fn main() {
-    cprintln!("<bold><g>Advent</> <r>of</> <g>Code</> <r>2024</>:</>");
+    cprintln!("<s><g>Advent</> <r>of</> <g>Code</> <r>2024</>:</>");
 
     for day in (1..NUMBER_OF_DAYS).rev() {
-        if !Path::new(&format!("./inputs/day{day:0>2}.txt")).exists() {
+        if !Path::new(&format!("./inputs/2024/day{day:0>2}.txt")).exists() {
             continue;
         }
 
-        cprintln!("\n[<b>Day {:>2}</>: <g, bold>EXISTS</>]\n", day);
+        cprintln!("\n[<b>Day {:>2}</>: <g, s>EXISTS</>]\n", day);
         match day {
             1 => day01::day_01(),
             2 => day02::day_02(),
@@ -24,6 +24,7 @@ fn main() {
             6 => day06::day_06(),
             7 => day07::day_07(),
             8 => day08::day_08(),
+            9 => day09::day_09(),
             _ => panic!()
         }
         break;

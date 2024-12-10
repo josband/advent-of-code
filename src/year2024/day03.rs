@@ -8,7 +8,7 @@ pub fn day_03() {
 }
 
 fn parse_all_enabled() -> Vec<(i32, i32)> {
-    read_to_string("./inputs/day03.txt").expect("Cannot open 2024 day 3")
+    read_to_string("./inputs/2024/day03.txt").expect("Cannot open 2024 day 3")
         .lines()
         .map(|line| {
             let re = Regex::new(r"mul\(([0-9]{1,3}),([0-9]{1,3})\)").unwrap();
@@ -21,7 +21,7 @@ fn parse_all_enabled() -> Vec<(i32, i32)> {
 fn parse_dos_and_donts() -> Vec<(i32, i32)> {
     let re = Regex::new(r"do\(\)|don't\(\)|mul\(([0-9]{1,3}),([0-9]{1,3})\)").unwrap();
     let mut is_enabled = true;
-    re.captures_iter(&read_to_string("./inputs/day03.txt").expect("Cannot open 2024 day 3")).filter_map(|capture| {
+    re.captures_iter(&read_to_string("./inputs/2024/day03.txt").expect("Cannot open 2024 day 3")).filter_map(|capture| {
         // println!("{}", &capture[0]);
         if &capture[0] == "do()" {
             // println!("Do");

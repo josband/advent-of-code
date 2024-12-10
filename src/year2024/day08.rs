@@ -13,7 +13,7 @@ pub fn day_08() {
 fn parse() -> Input {
     let mut location_map = Vec::new();
     let mut sensor_map = HashMap::new();
-    read_to_string("inputs/day08.txt").unwrap().lines().enumerate().for_each(|line| {
+    read_to_string("inputs/2024/day08.txt").unwrap().lines().enumerate().for_each(|line| {
         let mut line_values = Vec::new();
         line.1.chars().enumerate().filter_map(|c| {
             line_values.push(c.1);

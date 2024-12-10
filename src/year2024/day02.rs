@@ -8,7 +8,7 @@ pub fn day_02() {
 }
 
 fn parse() -> Vec<Vec<i32>> {
-    let input = File::open("./inputs/day02.txt");
+    let input = File::open("./inputs/2024/day02.txt");
     if let Err(e) = input {
         panic!("Failed to open 2024 day 2 input {:?}", e);
     }

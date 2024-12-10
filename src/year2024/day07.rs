@@ -11,7 +11,7 @@ pub fn day_07() {
 }
 
 fn parse() -> Input {
-    read_to_string("inputs/day07.txt").unwrap().lines().map(|line| {
+    read_to_string("inputs/2024/day07.txt").unwrap().lines().map(|line| {
         line.split_once(":").map(|(res, operands)| {
             (
                 res.parse().unwrap(),

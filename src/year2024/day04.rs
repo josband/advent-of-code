@@ -67,7 +67,7 @@ fn match_mas(crossword: &Vec<Vec<char>>, r: usize, c: usize) -> i32 {
 }
 
 fn parse() -> Vec<Vec<char>> {
-    read_to_string("./inputs/day04.txt").expect("Cannot open 2024 day 4").lines().map(|line| {
+    read_to_string("./inputs/2024/day04.txt").expect("Cannot open 2024 day 4").lines().map(|line| {
         line.chars().collect()
     }).collect()
 }

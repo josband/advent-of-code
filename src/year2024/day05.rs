@@ -11,7 +11,7 @@ pub fn day_05() {
 type Input = (HashMap<usize, Vec<usize>>, Vec<Vec<usize>>);
 
 fn parse() -> Input {
-    let input = read_to_string("inputs/day05.txt").expect("Cannot open 2024 day 5");
+    let input = read_to_string("inputs/2024/day05.txt").expect("Cannot open 2024 day 5");
     let (map_input, update_input) = input.split_once("\r\n\r\n").unwrap();
     
     let mut ordering_map: HashMap<usize, Vec<usize>> = HashMap::new();
