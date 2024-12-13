@@ -27,6 +27,7 @@ fn main() {
             9 => day09::day_09(),
             10 => day10::day_10(),
             11 => day11::day_11(),
+            12 => day12::day_12(),
             _ => panic!()
         }
         break;
