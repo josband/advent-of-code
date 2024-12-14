@@ -22,7 +22,9 @@ pub fn day_13() {
 fn parse() -> Input {
     read_to_string("inputs/2024/day13.txt").unwrap().split("\r\n\r\n").map(|machine| {
         let machine_spec = machine.lines().map(|line| {
-            line.split(", ").map(|subset| subset.chars().filter(|character| character.is_numeric()).collect::<String>().parse().unwrap()).collect()
+            line.split(", ").map(|subset| 
+                subset.chars().filter(|character| character.is_numeric()).collect::<String>().parse().unwrap()
+            ).collect()
         }).collect::<Vec<Vec<isize>>>();
 
         Machine {
