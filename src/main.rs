@@ -31,6 +31,7 @@ fn main() {
             13 => day13::day_13(),
             14 => day14::day_14(),
             15 => day15::day_15(),
+            16 => day16::day_16(),
             _ => panic!()
         }
         break;
