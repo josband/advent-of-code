@@ -16,3 +16,7 @@ pub mod year2024 {
     pub mod day15;
     pub mod day16;
 }
+
+pub mod year2025 {
+    pub mod day01;
+}
