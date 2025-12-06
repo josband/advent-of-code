@@ -63,7 +63,6 @@ fn part2(ranges: &[RangeInclusive<isize>]) {
     let mut merged_ranges = vec![];
     let mut curr_range = sorted_ranges[0].clone();
     for (i, range) in sorted_ranges.iter().enumerate() {
-        println!("{:?} {:?}", curr_range, range);
         if range.start() <= curr_range.end() {
             curr_range =
                 RangeInclusive::new(*curr_range.start(), max(*curr_range.end(), *range.end()))
